@@ -12,8 +12,7 @@ services:
       retries: 10
 
   med_base_api:
-    build:
-      context: .
+    image: diplom
     ports:
       - "8000:8000"
     volumes:
@@ -24,8 +23,7 @@ services:
     command: med_base_api
 
   admin:
-    build:
-      context: .
+    image: diplom
     ports:
       - "8001:8501"
     volumes:
@@ -34,12 +32,3 @@ services:
       - med_base_api
 
     command: admin
-  
-  # synomed_api:
-  #   build:
-  #     context: .
-  #   ports:
-  #     - "8002:8000"
-  #   volumes:
-  #     - ./synomed_api:/src/synomed_api
-  #   command: synomed_api

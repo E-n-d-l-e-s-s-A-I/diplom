@@ -10,8 +10,6 @@ class TermApi:
 
     def get_terms(self) -> list[Term]:
         terms_raw = re.get(self.api_endpoint).json()
-        import logging
-        logging.warn(terms_raw)
         terms: list[Term] = [Term(**term) for term in terms_raw]
         return terms
 
