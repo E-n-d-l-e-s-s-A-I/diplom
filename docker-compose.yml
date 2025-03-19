@@ -32,3 +32,11 @@ services:
       - med_base_api
 
     command: admin
+  
+  synomed_api:
+    image: diplom
+    ports:
+      - "8003:8000"
+    volumes:
+      - ./synomed_api:/src/synomed_api
+    command: synomed_api

@@ -13,6 +13,10 @@ case $COMMAND in
         cd admin
         uv run streamlit run main.py --client.showErrorDetails=false
        ;;
+    synomed_api)
+        cd synomed_api
+        uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+       ;;
     *)
         echo "Ошибка: Неверный параметр '$COMMAND'. Используйте 'med_base_api' или 'admin' или 'synomed_api'"
         exit 1
