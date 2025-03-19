@@ -5,7 +5,7 @@ class Settings(BaseSettings):
     """Конфиг admin."""
 
     med_base_url: str
-
+    MODEL_API_URL: str
     model_config = SettingsConfigDict(extra="ignore")
 
 

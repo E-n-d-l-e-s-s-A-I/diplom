@@ -5,7 +5,7 @@ class Settings(BaseSettings):
     """Конфиг synomed_api."""
 
     UMLS_API_KEY: str
-    TRANSLATE_API_URL: str
+    MODEL_API_URL: str
     model_config = SettingsConfigDict(extra="ignore")
 
 

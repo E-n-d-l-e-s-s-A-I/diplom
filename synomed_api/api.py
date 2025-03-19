@@ -7,7 +7,7 @@ class API:
 
     def __init__(self, api_key: str):
         self.api_key = api_key
-        self.translate_api_url = settings.TRANSLATE_API_URL
+        self.model_api_url = settings.MODEL_API_URL
         self.ulms_url = "https://uts-ws.nlm.nih.gov/rest"
 
     def get_synonyms(self, term: str) -> list[str]:
@@ -23,7 +23,7 @@ class API:
 
         query = {"text": term}
         response = requests.get(
-            f"{self.translate_api_url}/translate_ru_to_eng", params=query
+            f"{self.model_api_url}/translate_ru_to_eng", params=query
         )
         return response.json()
 
@@ -32,6 +32,6 @@ class API:
 
         query = {"text": term}
         response = requests.get(
-            f"{self.translate_api_url}/translate_eng_to_ru", params=query
+            f"{self.model_api_url}/translate_eng_to_ru", params=query
         )
         return response.json()
