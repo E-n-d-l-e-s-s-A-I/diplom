@@ -5,17 +5,17 @@ case $COMMAND in
     med_base_api)
         echo "Запускается сервис med_base_api..."
         cd med_base_api
-        uv run alembic upgrade head
+        alembic upgrade head
         python cli.py filldb
-        uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+        uvicorn main:app --host 0.0.0.0 --port 8000 --reload
         ;;
     admin)
         cd admin
-        uv run streamlit run main.py --client.showErrorDetails=false
+        streamlit run main.py --client.showErrorDetails=false
        ;;
     synomed_api)
         cd synomed_api
-        uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+        uvicorn main:app --host 0.0.0.0 --port 8000 --reload
        ;;
     *)
         echo "Ошибка: Неверный параметр '$COMMAND'. Используйте 'med_base_api' или 'admin' или 'synomed_api'"
